@@ -92,7 +92,7 @@ public:
     TNode* foundNode=NULL;
     TNode* parentNode=NULL;
     //
-    if(Search(__Val, FRoot, foundNode, parentNode))
+    if(0x0 != FRoot && Search(__Val, FRoot, foundNode, parentNode))
     {
       if(0x0 != foundNode->Right && 0x0 != foundNode->Left)
       {
