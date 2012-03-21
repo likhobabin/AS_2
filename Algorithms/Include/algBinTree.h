@@ -1,10 +1,6 @@
 #ifndef __ALGTREE_H__
 #define __ALGTREE_H__
-
-template<class TNodeType> class binTree;
-template<class TData > struct node;
 //
-
 template<class TData> class binTree
 {
 public:
@@ -14,6 +10,7 @@ public:
     node* Right;
     TData Val;
     //
+
     node(void ):
       Left(0x0),
       Right(0x0),
@@ -214,4 +211,4 @@ private:
   }
 };
 
-#endif
+#endif//__ALGTREE_H__

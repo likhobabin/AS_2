@@ -14,9 +14,9 @@ int main(int /*argc*/, const char** /*argv*/)
 
 static void tstBinTree(void )
 {
- binTree<int > binTree;
  int val=0x3;
- 
+ binTree<int> binTree;
+ //
  binTree.Add(val);
  val = 0x6;
  binTree.Add(val);
