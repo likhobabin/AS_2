@@ -77,10 +77,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Include\algBinTree.h" />
+    <ClInclude Include="Include\algList.h" />
     <ClInclude Include="Include\algPrecompile.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\algBinTree.cpp" />
+    <ClCompile Include="Source\algList.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

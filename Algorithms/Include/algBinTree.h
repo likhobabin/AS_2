@@ -1,6 +1,9 @@
 #ifndef __ALGTREE_H__
 #define __ALGTREE_H__
 //
+void tstBinTree(void );
+//
+
 template<class TData> class binTree
 {
 public:
