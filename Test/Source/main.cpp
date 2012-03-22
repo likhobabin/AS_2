@@ -54,4 +54,23 @@ static void tstBinTree(void )
  binTree.Remove(6);
  //
  binTree.TraverseMaxMin();
+ //
+ binTree.Destroy();
+ //
+ val = -7;
+ binTree.Add(val);
+ val = 9;
+ binTree.Add(val);
+ val = 0;
+ binTree.Add(val);
+ val = -11;
+ binTree.Add(val);
+ val = 10;
+ binTree.Add(val);
+ val = 3;
+ binTree.Add(val);
+ //
+ binTree.Remove(9);
+ //
+ binTree.TraverseMaxMin();
 }

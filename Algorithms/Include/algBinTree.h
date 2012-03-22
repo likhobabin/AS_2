@@ -151,13 +151,17 @@ private:
   TNode* FRoot;
   //
 
-  void doDestroy(TNode* __InNode)
+  void doDestroy(TNode*& __InNode)
   { 
     if(__InNode->Right)
+    {
       doDestroy(__InNode->Right);
+    }
     //
     if(__InNode->Left)
+    {
       doDestroy(__InNode->Left);
+    }
     //
     delete __InNode;
     __InNode=0x0;
@@ -199,6 +203,7 @@ private:
    return(bFound);
   }
   //
+
   TNode* theLeftBindNode(TNode* __InNode)
   {
     static TNode* bindNode=NULL;
