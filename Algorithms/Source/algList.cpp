@@ -13,4 +13,5 @@ void tstList(void )
   list.Add(3);
   list.Add(5);
   //
+  list.Reversed();
 }

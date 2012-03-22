@@ -51,6 +51,24 @@ public:
   }
   //
 
+  void Reversed(void )
+  {
+    TNode* prev = FHead;
+    TNode* curr = prev->Next;
+    prev->Next = 0x0;
+    //
+    while(curr)
+    {
+      TNode* temp = curr->Next;
+      curr->Next = prev;
+      prev = curr;
+      curr = temp;
+    }
+    //
+    FHead = prev;
+  }
+  //
+
   void Destroy(void )
   {
     if(0x0 != FHead)
