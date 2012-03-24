@@ -1,6 +1,7 @@
 #ifndef __ALGLIST_H__
 #define __ALGLIST_H__
 //
+
 void tstList(void );
 //
 
@@ -28,7 +29,8 @@ public:
   typedef node<TData > TNode;
   //
   list(void ):
-  FHead(0x0)
+  FHead(0x0),
+  FTail(0x0)
   {
   }
   //
@@ -36,17 +38,15 @@ public:
   void Add(TData __InVal)
   {
     if(0x0 == FHead)
+    {
       FHead = new TNode(__InVal);
+      FTail = FHead;
+    }
     else
     {
-      TNode* traverse = FHead;
-      //
-      while(traverse->Next)
-      {
-        traverse = traverse->Next;
-      }
-      //
-      traverse->Next = new TNode(__InVal);
+      TNode *temp = new TNode(__InVal);
+      FTail->Next = temp;
+      FTail = temp;
     }
   }
   //
@@ -66,21 +66,24 @@ public:
   }
   //
 
-  void MergeSort()
+  template<class Compare > void MergeSort(void )
   {
-    TNode *p=0x0, *q=0x0, *i_input=0x0, *tail=0x0, *head=FHead;
+    TNode *p=0x0;
+    TNode *q=0x0;
+    TNode *i_input=0x0;
+    TNode *tail=0x0;
+    TNode *head=FHead;
     unsigned int k=1;
     unsigned int pSize=0;
     unsigned int qSize=0;
     unsigned int quant = Quantity();
-    int out=0;
+    unsigned int out=0;
     //
     while(1)
     {
       p = head;
       q = p;
-      head = 0x0;
-      tail=0x0;
+      head = tail = 0x0;      
       out=0;
       //
       while(p)
@@ -114,7 +117,9 @@ public:
               i_input=p; p=p->Next; pSize--;
             }
             else
-              if(p->Data <= q->Data)
+            {
+              Compare comp;
+              if(comp(p->Data, q->Data))
               {
                 i_input=p; p=p->Next; pSize--;
               }
@@ -122,6 +127,7 @@ public:
               {
                 i_input=q; q=q->Next; qSize--;
               }
+            }
           //
           if(0x0 != tail)
           {
@@ -144,6 +150,7 @@ public:
       k*=2;
     }//[3]
     FHead = head;
+    FTail = tail;
   }
   //
 
@@ -152,6 +159,7 @@ public:
     TNode* prev = FHead;
     TNode* curr = prev->Next;
     prev->Next = 0x0;
+    FTail = prev;
     //
     while(curr)
     {
@@ -180,6 +188,7 @@ public:
 
 private:
   TNode* FHead;
+  TNode* FTail;
   //
 
   void doDestroy(TNode*& __InNode)

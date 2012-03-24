@@ -79,6 +79,7 @@
     <ClInclude Include="Include\algBinTree.h" />
     <ClInclude Include="Include\algList.h" />
     <ClInclude Include="Include\algPrecompile.h" />
+    <ClInclude Include="Include\algShared.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\algBinTree.cpp" />
