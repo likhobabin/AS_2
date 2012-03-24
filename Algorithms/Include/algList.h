@@ -66,7 +66,7 @@ public:
   }
   //
 
-  template<class Compare > void MergeSort(void )
+  template<class comparator > void MergeSort(void )
   {
     TNode *p=0x0;
     TNode *q=0x0;
@@ -77,18 +77,18 @@ public:
     unsigned int pSize=0;
     unsigned int qSize=0;
     unsigned int quant = Quantity();
-    unsigned int out=0;
+    bool bOut=true;
     //
     while(1)
     {
       p = head;
       q = p;
       head = tail = 0x0;      
-      out=0;
+      bOut=true;
       //
       while(p)
       {
-        out++;
+        bOut = false;
         TNode* prev=0x0;
         for(unsigned int i=0; k>i && q; i++)
         {
@@ -103,7 +103,7 @@ public:
         qSize = k;
         //
         if(quant <= (qSize+pSize))
-          out=0;
+          bOut = true;
         //
         while((pSize>0) || (q && qSize>0))
         {
@@ -118,7 +118,7 @@ public:
             }
             else
             {
-              Compare comp;
+              comparator comp;
               if(comp(p->Data, q->Data))
               {
                 i_input=p; p=p->Next; pSize--;
@@ -130,13 +130,9 @@ public:
             }
           //
           if(0x0 != tail)
-          {
             tail->Next = i_input;
-          }
           else
-          {
             head = i_input;
-          }
           //
           tail = i_input;
           tail->Next=0x0;
@@ -144,7 +140,7 @@ public:
         p=q;
       }//[2]
       //
-      if(out <= 1)
+      if(bOut)
         break;
       //
       k*=2;
@@ -156,10 +152,8 @@ public:
 
   void Reversed(void )
   {
-    TNode* prev = FHead;
-    TNode* curr = prev->Next;
-    prev->Next = 0x0;
-    FTail = prev;
+    TNode* prev = 0x0;
+    TNode* curr = FTail = FHead;
     //
     while(curr)
     {

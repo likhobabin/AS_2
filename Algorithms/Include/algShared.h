@@ -5,18 +5,18 @@
 #include <functional>
 //
 
-template<class TComp> struct leftLessOrEqualRight : public std::binary_function<TComp, TComp, bool>
+template<class TData> struct leftLessOrEqualRight : public std::binary_function<TData, TData, bool>
 {
-  bool operator()(const TComp& __Left, const TComp& __Right)
+  bool operator()(const TData& __Left, const TData& __Right)
   {
     return(__Left <= __Right);
   }
 };
 //
 
-template<class TComp> struct leftMoreOrEqualRight : public std::binary_function<TComp, TComp, bool>
+template<class TData> struct leftMoreOrEqualRight : public std::binary_function<TData, TData, bool>
 {
-  bool operator()(const TComp& __Left, const TComp& __Right)
+  bool operator()(const TData& __Left, const TData& __Right)
   {
     return(__Left >= __Right);
   }
